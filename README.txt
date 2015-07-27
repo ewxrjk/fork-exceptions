@@ -1,5 +1,14 @@
 Inspired by http://bugs.debian.org/793471 ...
 
+What happens if you fork a program and in the child, before calling
+exec, you raise an exception?  Can the exception 'escape' from the
+code that's supposed to be running in the child out into the wider
+program (but still running in the child process)?
+
+In Perl the answer is (or at least, was) yes.  I had a poke around in
+Python to see if the same is true there.  (I tried Python 2.7.6
+because that's what Apple ship.)
+
 1. popen2.py
    This can be subverted if:
      1a. os.dup2 fails - but I can't see how to make that happen.
