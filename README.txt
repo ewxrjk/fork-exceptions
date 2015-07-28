@@ -18,7 +18,8 @@ To be clear, if you do something like this:
 conditional.  That's completely uninteresting.  What is interesting -
 or 'interesting' if you're trying to understand it without realizing
 what happened - is when this happens unexpectedly, e.g. due to a
-poorly-handled error case in a utility function.
+poorly-handled error case in a utility function, or due to an
+unforeseen interaction of some sort.
 
 1. popen2.py
    This can be subverted if:
