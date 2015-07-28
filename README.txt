@@ -9,6 +9,17 @@ In Perl the answer is (or at least, was) yes.  I had a poke around in
 Python to see if the same is true there.  (I tried Python 2.7.6
 because that's what Apple ship.)
 
+To be clear, if you do something like this:
+
+    if os.fork() == 0:
+      raise Exception()
+
+...then nobody should be surprised that the exception 'escapes' the
+conditional.  That's completely uninteresting.  What is interesting -
+or 'interesting' if you're trying to understand it without realizing
+what happened - is when this happens unexpectedly, e.g. due to a
+poorly-handled error case in a utility function.
+
 1. popen2.py
    This can be subverted if:
      1a. os.dup2 fails - but I can't see how to make that happen.
